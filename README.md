@@ -1,66 +1,15 @@
-## Foundry
+## TokenBurnLeaderboard
+This contract is a simple leaderboard that keeps track of the burners of a token. It is designed to be used with the [$TEX] contract, but it works with any ERC20 token.
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+1. Once the contract is deployed, a token contract is set, once its set there is no way to change it.
 
-Foundry consists of:
+### How it works
+In a period of time, the contract will be open to burning tokens. The contract will keep track of the burners and the amount of tokens they burned. At the end of the period, the contract will freeze the leaderboard and the burners will be rewarded with a prize.
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+### How to use
+1. Deploy the contract
+2. Call the `start` function to start the burning period
+3. Burn tokens
+4. Call the `stop` function to stop the burning period
+5. Call the `getLeaderboard` function to get the leaderboard
+6. Call the `claim` function to claim the prize
